@@ -50,6 +50,7 @@ class My_GoalUpdateView(LoginRequiredMixin, generic.UpdateView):
 class My_GoalListView(LoginRequiredMixin,generic.ListView):
     model = My_Goal
     template_name = 'goal_list.html'
+    paginate_by = 3
 
     def get_queryset(self):
         goals = My_Goal.objects.filter(user=self.request.user).order_by('-created_at')
