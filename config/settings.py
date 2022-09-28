@@ -144,6 +144,8 @@ STATICFILES_DIRS=(
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
 # Google Login
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
@@ -156,3 +158,4 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'my_goal:index'
 # Googleのキー
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '488477345938-6gnmgv14dlmv7vs9r420m83omot2np2c.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
