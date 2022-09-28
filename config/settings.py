@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'my_goal.apps.MyGoalConfig',
     'social_django',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -144,7 +145,7 @@ STATICFILES_DIRS=(
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+AUTH_USER_MODEL='accounts.CustomUser'
 
 # Google Login
 AUTHENTICATION_BACKENDS = [
