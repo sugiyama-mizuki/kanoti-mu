@@ -4,7 +4,7 @@ from accounts.models import CustomUser
 
 # Create your models here.
 
-class My_Goal(models.Model):
+class Goal(models.Model):
     '''目標モデル'''
 
     user=models.ForeignKey(CustomUser,verbose_name='ユーザー',on_delete=models.PROTECT)
@@ -14,7 +14,7 @@ class My_Goal(models.Model):
     updated_at=models.DateField(verbose_name='更新日時',auto_now=True)
 
     class Meta:
-        verbose_name_plural='My_Goal'
+        verbose_name_plural='Goal'
 
         def __str__(self):
             return self.title

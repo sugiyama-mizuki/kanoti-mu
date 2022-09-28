@@ -1,20 +1,21 @@
 from django.views import generic
-from .forms import My_GoalCreateForm
+from .forms import GoalCreateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .models import My_Goal
+from .models import Goal
+from .forms import  GoalCreateForm
 
 # Create your views here.
 
 class IndexView(generic.TemplateView):
     template_name = "index.html"
 
-class My_GoalCreateView(LoginRequiredMixin,generic.CreateView):
-    model = My_Goal
-    template_name = 'my_goal_create.html'
-    form_class = My_GoalCreateForm
-    success_url = reverse_lazy('my_goal:my_goal_list')
+class GoalCreateView(LoginRequiredMixin,generic.CreateView):
+    model = Goal
+    template_name = 'goal_create.html'
+    form_class = GoalCreateForm
+    success_url = reverse_lazy('my_goal:goal_list')
 
     def form_valid(self, form):
         my_goal = form.save(commit=False)
