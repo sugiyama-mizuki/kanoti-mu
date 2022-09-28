@@ -16,9 +16,9 @@
             <div class='d-flex justify-content-end mb-4'>
                 <a class='btn btn-primary float-right' href="{% url 'my_goal:goal_create' %}">新規作成</a>
             </div>
-            <!-- {% for goal in goal_list %}
+            {% for goal in goal_list %}
             <div class='post-preview'>
-                <a href="{% url 'my_goal:goal_detail' diary.pk %}">
+                <a href="{% url 'my_goal:goal_detail' goal.pk %}">
                     <h2 class='post-title'>
                         {{ goal.title }}
                     </h2>
@@ -30,8 +30,8 @@
             </div>
             <hr class="my-4">
             {% empty %}
-            <p>日記がありません。</p>
-            {% endfor %} -->
+            <p>目標がありません。</p>
+            {% endfor %} 
 
             <!-- ページネーション処理 -->
             <!-- {% if is_paginated %}
