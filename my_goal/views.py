@@ -45,3 +45,13 @@ class My_GoalUpdateView(LoginRequiredMixin, generic.UpdateView):
     def form_invalid(self, form):
         messages.error(self.request,'日記の更新に失敗しました。')
         return super().form_invalid(form)
+
+# 日記削除
+class DiaryDeleteView(LoginRequiredMixin, OnlyYouMixin, generic.DeleteView):
+    model = Diary
+    template_name = 'diary_delete.html'
+    success_url = reverse_lazy('diary:diary_list')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "日記を削除しました。")
+        return super().delete(request, *args, **kwargs)
