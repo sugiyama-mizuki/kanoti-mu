@@ -1,8 +1,9 @@
-from .models import My_Goal
+from .models import Goal, My_Goal
+from django import forms
 
-class My_GoalCreateForm(forms.ModelForm):
+class GoalCreateForm(forms.ModelForm):
     class Meta:
-        model=My_Goal
+        model=Goal
         fields = ('title', 'content')
         
     def __init__(self, *args, **kwargs):
