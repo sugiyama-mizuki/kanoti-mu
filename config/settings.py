@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'my_goal.apps.MyGoalConfig',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -65,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -139,5 +144,15 @@ STATICFILES_DIRS=(
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Google Login
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+# ログイン/ログアウト後の遷移先を設定
+LOGIN_REDIRECT_URL = 'my_goal:mygoal_list'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'my_goal:index'
 
-
+# Googleのキー
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '488477345938-6gnmgv14dlmv7vs9r420m83omot2np2c.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
