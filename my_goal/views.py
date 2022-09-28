@@ -55,3 +55,8 @@ class My_GoalListView(LoginRequiredMixin,generic.ListView):
     def get_queryset(self):
         goals = My_Goal.objects.filter(user=self.request.user).order_by('-created_at')
         return goals
+
+class My_GoalDetailView(LoginRequiredMixin,generic.DetailView):
+    model = My_Goal
+    template_name = 'goal_detail.html'
+    pk_url_kwarg = 'id'
