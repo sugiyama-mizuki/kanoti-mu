@@ -4,5 +4,5 @@ from . import views
 app_name = 'my_goal'
 urlpatterns = [
     path('',views.IndexView.as_view(), name="index"),
-    path('goal_create/',views.GoalCreateView.as_view(),name="goal_create"),
+    path('my_goal_create/',views.My_GoalCreateView.as_view(),name="my_goal_create"),
 ]
