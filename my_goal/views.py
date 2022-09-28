@@ -62,7 +62,7 @@ class My_GoalDetailView(LoginRequiredMixin,generic.DetailView):
     pk_url_kwarg = 'id'
 
 # 日記削除
-class DiaryDeleteView(LoginRequiredMixin, generic.DeleteView):
+class My_GoalDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = My_Goal
     template_name = 'goal_delete.html'
     success_url = reverse_lazy('my_goal:goal_list')
