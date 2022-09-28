@@ -46,12 +46,28 @@ class My_GoalUpdateView(LoginRequiredMixin, generic.UpdateView):
         messages.error(self.request,'日記の更新に失敗しました。')
         return super().form_invalid(form)
 
+#　リスト
+class My_GoalListView(LoginRequiredMixin,generic.ListView):
+    model = My_Goal
+    template_name = 'goal_list.html'
+    paginate_by = 3
+
+    def get_queryset(self):
+        goals = My_Goal.objects.filter(user=self.request.user).order_by('-created_at')
+        return goals
+
+class My_GoalDetailView(LoginRequiredMixin,generic.DetailView):
+    model = My_Goal
+    template_name = 'goal_detail.html'
+    pk_url_kwarg = 'id'
+
 # 日記削除
-class DiaryDeleteView(LoginRequiredMixin, OnlyYouMixin, generic.DeleteView):
-    model = Diary
-    template_name = 'diary_delete.html'
-    success_url = reverse_lazy('diary:diary_list')
+class DiaryDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = My_Goal
+    template_name = 'goal_delete.html'
+    success_url = reverse_lazy('my_goal:goal_list')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, "日記を削除しました。")
         return super().delete(request, *args, **kwargs)
+
