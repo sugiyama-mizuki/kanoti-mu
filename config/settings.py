@@ -150,7 +150,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 # ログイン/ログアウト後の遷移先を設定
-LOGIN_REDIRECT_URL = 'my_goal:mygoal_list'
+LOGIN_REDIRECT_URL = 'my_goal:goal_list'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'my_goal:index'
 
 # Googleのキー
