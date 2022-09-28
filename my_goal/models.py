@@ -4,7 +4,7 @@ from accounts.models import CustomUser
 
 # Create your models here.
 
-class Goal(models.Model):
+class My_Goal(models.Model):
     '''目標モデル'''
 
     user=models.ForeignKey(CustomUser,verbose_name='ユーザー',on_delete=models.PROTECT)
