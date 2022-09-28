@@ -1,10 +1,9 @@
 from django.views import generic
-from .forms import GoalCreateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import My_Goal
-from .forms import  My_GoalCreateForm
+from .forms import My_GoalCreateForm 
 
 # Create your views here.
 

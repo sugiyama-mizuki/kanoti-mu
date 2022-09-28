@@ -1,4 +1,4 @@
-from .models import My_Goal, My_Goal
+from .models import My_Goal
 from django import forms
 
 class My_GoalCreateForm(forms.ModelForm):
