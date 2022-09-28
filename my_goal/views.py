@@ -27,3 +27,22 @@ class My_GoalCreateView(LoginRequiredMixin,generic.CreateView):
     def form_invalid(self, form):
         messages.error(self.request, "日記の作成に失敗しました。")
         return super().form_invalid(form)
+
+# 日記編集
+class My_GoalUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = My_Goal
+    template_name = 'goal_update.html'
+    form_class = My_GoalCreateForm
+
+    def get_success_url(self):
+        return reverse_lazy('my_goal:my_goal_detail', kwargs={'pk':self.kwargs['pk']})
+    
+    # 成功したとき
+    def form_valid(self, form):
+        messages.success(self.request,'日記を更新しました。')
+        return super().form_valid(form)
+    
+    # 失敗したとき
+    def form_invalid(self, form):
+        messages.error(self.request,'日記の更新に失敗しました。')
+        return super().form_invalid(form)
