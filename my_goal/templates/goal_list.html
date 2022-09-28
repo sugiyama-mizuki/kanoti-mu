@@ -6,7 +6,7 @@
 {% block active_goal_list %}active{% endblock %}
 
 {% block head %}
-<!-- 未定 -->
+<!-- css未定 -->
 {% endblock %}
 
 {% block contents %}
@@ -14,48 +14,48 @@
     <div class='row gx-4 gx-lg-5 justify-content-center'>
         <div class='col-md-10 col-lg-8 col-xl-7'>
             <div class='d-flex justify-content-end mb-4'>
-                <a class='btn btn-primary float-right' href="{% url 'diary:diary_create' %}">新規作成</a>
+                <a class='btn btn-primary float-right' href="{% url 'my_goal:goal_create' %}">新規作成</a>
             </div>
-            {% for diary in diary_list %}
+            <!-- {% for goal in goal_list %}
             <div class='post-preview'>
-                <a href="{% url 'diary:diary_detail' diary.pk %}">
+                <a href="{% url 'my_goal:goal_detail' diary.pk %}">
                     <h2 class='post-title'>
-                        {{ diary.title }}
+                        {{ goal.title }}
                     </h2>
                     <h3 class="post-subtitle">
-                        {{ diary.content|truncatechars:20 }}
+                        {{ goal.content|truncatechars:20 }}
                     </h3>
                 </a>
-                <p class="post-meta">{{ diary.created_at }}</p>
+                <p class="post-meta">{{ goal.created_at }}</p>
             </div>
             <hr class="my-4">
             {% empty %}
             <p>日記がありません。</p>
-            {% endfor %}
+            {% endfor %} -->
 
             <!-- ページネーション処理 -->
-            {% if is_paginated %}
-            <ul class='pagination'>
+            <!-- {% if is_paginated %}
+            <ul class='pagination'> -->
                 <!-- 前ページへのリンク -->
-                {% if page_obj.has_previous %}
+                <!-- {% if page_obj.has_previous %}
                 <li class='page-item'>
                     <a class='page-link' href="?page={{ page_obj.previous_pagenumber }}">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                {% endif %}
+                {% endif %} -->
 
                 <!-- ページ数表示 -->
-                {% for page_num in page_obj.paginator.page_range %}
+                <!-- {% for page_num in page_obj.paginator.page_range %}
                 {% if page_obj.number == page_num %}
                 <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
                 {% else %}
                 <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
                 {% endif %}
-                {% endfor %}
+                {% endfor %} -->
 
                 <!-- 次ページへのリンク -->
-                {% if page_obj.has_next %}
+                <!-- {% if page_obj.has_next %}
                 <li class="page-item">
                     <a class="page-link" href="?page={{ page_obj.next_page_number }}">
                         <span aria-hidden="true">&raquo;</span>
@@ -63,7 +63,7 @@
                 </li>
                 {% endif %}
             </ul>
-            {% endif %}
+            {% endif %} -->
         </div>
     </div>
 </div>
