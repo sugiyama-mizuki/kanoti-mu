@@ -46,3 +46,12 @@ class My_GoalUpdateView(LoginRequiredMixin, generic.UpdateView):
     def form_invalid(self, form):
         messages.error(self.request,'日記の更新に失敗しました。')
         return super().form_invalid(form)
+
+#　リスト
+class My_GoalListView(LoginRequiredMixin,generic.ListView):
+    model = My_Goal
+    template_name = 'goal_list.html'
+
+    def get_queryset(self):
+        goals = My_Goal.objects.filter(user=self.request.user).order_by('-created_at')
+        return goals
