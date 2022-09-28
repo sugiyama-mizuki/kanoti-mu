@@ -10,7 +10,7 @@ from .models import My_Goal
 class IndexView(generic.TemplateView):
     template_name = "index.html"
 
-class My_GoalCreateView(LoginRequiredMixin,generic.CreateView):
+class CreateView(LoginRequiredMixin,generic.CreateView):
     model = My_Goal
     template_name = 'my_goal_create.html'
     form_class = My_GoalCreateForm
@@ -26,4 +26,7 @@ class My_GoalCreateView(LoginRequiredMixin,generic.CreateView):
     def form_invalid(self, form):
         messages.error(self.request, "日記の作成に失敗しました。")
         return super().form_invalid(form)
+
+
+
 
